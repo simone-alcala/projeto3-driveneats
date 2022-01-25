@@ -74,6 +74,18 @@ nav small{
   
 }
 
+.pratos{
+  overflow-x: scroll;
+}
+
+.bebidas{
+  overflow-x: scroll;
+}
+
+.sobremesas{
+  overflow-x: scroll;
+}
+
 .prato{
   height: 216px;
 }
