@@ -12,6 +12,7 @@ function selecionar(item){
 
 function selecionarItem(item){ 
   document.getElementById(item).style.border= "solid 3px #32b72f";
+  document.getElementById(item).children[4].style.display = "block";
 }
 
 function removerSelecao(item){
@@ -29,6 +30,7 @@ function removerSelecao(item){
   for (var i = 1 ; i < 6 ; i++){
     if (i != naoRemove) {
       document.getElementById(tipo+i).style.border= "none";
+      document.getElementById(tipo+i).children[4].style.display = "none";
     }
   }
 }
@@ -41,5 +43,4 @@ function fecharPedido(){
   document.getElementById("fecharPedido").style.backgroundColor= "#32b72f";
   document.getElementById("fecharPedido").style.fontWeight= "700";
   document.getElementById("fecharPedido").innerHTML = "Fechar pedido";
-
 }
