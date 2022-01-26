@@ -43,4 +43,13 @@ function fecharPedido(){
   document.getElementById("fecharPedido").style.backgroundColor= "#32b72f";
   document.getElementById("fecharPedido").style.fontWeight= "700";
   document.getElementById("fecharPedido").innerHTML = "Fechar pedido";
+  document.getElementById("fecharPedido").disabled = false;
+}
+
+function abrirResumoPedido(){
+  document.getElementById("telaConfirmar").style.display = "flex";
+}
+
+function cancelar(){
+  document.getElementById("telaConfirmar").style.display = "none";
 }

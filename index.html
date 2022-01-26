@@ -171,8 +171,40 @@
   
   <!-- RODAPÉ -->
   <footer>
-    <button class="fechar-pedido font-pedido" id="fecharPedido">Selecione os 3 itens <br> para fechar o pedido</button>  
+    <button class="fechar-pedido font-pedido" id="fecharPedido" onclick="abrirResumoPedido()" disabled>
+      Selecione os 3 itens <br> para fechar o pedido
+    </button>  
   </footer>
+
+  <!-- CONFIRMAÇÃO DO PEDIDO-->
+  <div class="telaConfirmar font-pedido" id="telaConfirmar">
+    <div class="resumoPedido">
+
+      <strong>Confirme seu pedido</strong>
+      <table class="tabela_confirmacao">
+        <tr>
+          <td id="prato">a</td>
+          <td class="tab_preco" id="prato_preco"> b</td>
+        </tr>
+        <tr>
+          <td id="bebida">c</td>
+          <td class="tab_preco"id="bebida_preco">d </td>
+        </tr>
+        <tr>
+          <td id="sobremesa">e</td>
+          <td class="tab_preco"id="sobremesa_preco">f </td>
+        </tr>
+        <tr>
+          <td id="total"><strong>TOTAL</strong></td>
+          <td class="tab_preco"id="total_preco"> </td>
+        </tr>
+      </table>
+
+      <button class="confirmarPedido"><strong>Tudo certo, pode pedir!</strong></button>
+      <button class="cancelarPedido" onclick="cancelar()"><strong>Cancelar</strong></button>
+    </div>
+  </div>
+
 
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
   <script src="script.js"></script>
