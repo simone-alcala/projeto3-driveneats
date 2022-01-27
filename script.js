@@ -120,8 +120,7 @@ function fazerPedido(){
   linkWhasapp = encodeURIComponent (linkWhasapp);
 
   linkWhasapp = "https://wa.me/" + celular + "?text=" + linkWhasapp;
-  alert(linkWhasapp);
-
+  
   window.open(linkWhasapp);
   
   
