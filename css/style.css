@@ -157,8 +157,19 @@ footer{
   color: #ffffff;
   font-size: 20px;
   font-weight: 400;
+  padding: 0 80px;
 }
 
+.fechar-pedido-habilitado{
+  background-color: #32b72f;
+  font-weight: 700;
+}
+
+.fechar-pedido-habilitado:hover{
+  cursor: pointer;
+}
+
+/* CONFIRMACAO PEDIDO */
 .telaConfirmar{
   position: fixed;
   z-index: 2;
@@ -190,13 +201,14 @@ footer{
   flex-direction: column;
   justify-content: space-around;
 }
+
 .tabela_confirmacao{
-  width: 377px;
-}
-.tab_preco{
-  text-align: right;
+  width: 300px;
 }
 
+.tab-preco{
+  text-align: right;
+}
 
 th, td {
   padding: 10px;
@@ -229,4 +241,14 @@ th, td {
   cursor: pointer;
 }
 
+.abreTelaConfirmacao{
+  display: flex;
+}
+.fechaTelaConfirmacao{
+  display: none;
+}
 
+
+.envioPedido{
+  
+}
