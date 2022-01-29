@@ -101,16 +101,21 @@ function trocarPontoVirgula(valor){
 
 function confirmarPedido(){
 
+  let nomeUsuario = prompt("Por favor, digite seu nome:");
+  let enderecoUsuario = prompt("Por favor, digite seu endereço:");
+
   let linkWhasapp = "Olá, gostaria de fazer o pedido: \n";
   linkWhasapp += "- Prato: "     + selecionadoPrato.querySelector(".titulo").innerHTML     +    "\n";
   linkWhasapp += "- Bebida: "    + selecionadoBebida.querySelector(".titulo").innerHTML    +    "\n";
   linkWhasapp += "- Sobremesa: " + selecionadoSobremesa.querySelector(".titulo").innerHTML +    "\n";
-  linkWhasapp += "Total: R$ "    + precoTotal + "\n";
+  linkWhasapp += "Total: R$ "    + precoTotal      + "\n\n";
+  linkWhasapp += "Nome: "        + nomeUsuario     + "\n";
+  linkWhasapp += "Endereço: "    + enderecoUsuario + "\n";
 
   linkWhasapp = encodeURIComponent (linkWhasapp);
 
   linkWhasapp = "https://wa.me/" + celular + "?text=" + linkWhasapp;
-  
+
   window.open(linkWhasapp);
 }
 
@@ -119,4 +124,6 @@ function cancelarPedido(){
   telaConfirmar.classList.add("sumir");
   telaConfirmar.classList.remove("mostrar");
 }
+
+
 
