@@ -1,127 +1,122 @@
-let prato = false;
-let bebida = false;
-let sobremesa = false;
-
-let pratoSelecionado ;
-let bebidaSelecionado ;
-let sobremesaSelecionado ;
-
-let nomePrato;
-let nomeBebida;
-let nomeSobremesa;
-let precoTotal;
+let selecionadoPrato = null;
+let selecionadoBebida = null;
+let selecionadoSobremesa = null;
+let precoTotal = 0;
 
 const celular = "5519982199629";
 
-function selecionar(item){
-  selecionarItem(item);
-  removerSelecao(item);
-  if (verificarSelecao()){
-    fecharPedido();
-  }
-}
+function selecionar(item){ 
 
-function selecionarItem(item){ 
-  document.getElementById(item).style.border= "solid 3px #32b72f";
-  document.getElementById(item).children[4].style.display = "block";
-}
+  let busca = "";
+  let selecionado;
 
-function removerSelecao(item){
-  let naoRemove = item.slice(item.length - 1);
-  let tipo = item.substr(0,item.length - 1);
+  if (item.classList[0]==="prato"){
+    busca = ".pratos";
+    selecionadoPrato = item;
 
-  if (tipo == "prato_"){
-    pratoSelecionado = item;
-    prato = true;
-  } else if (tipo == "bebida_"){
-    bebidaSelecionado = item;
-    bebida = true;
-  } else {
-    sobremesaSelecionado = item;
-    sobremesa = true;
+  } else if (item.classList[0]==="bebida") {
+    busca = ".bebidas";
+    selecionadoBebida = item;
+
+  } else{
+    busca = ".sobremesas";
+    selecionadoSobremesa = item;
   }
 
-  for (let i = 1 ; i < 6 ; i++){
-    if (i != naoRemove) {
-      document.getElementById(tipo+i).style.border= "none";
-      document.getElementById(tipo+i).children[4].style.display = "none";
-    }
+  selecionado = document.querySelector(busca+ " .selecionado");
+   
+  if (selecionado != null)  {
+    selecionado.classList.remove("selecionado");
   }
+
+  item.classList.add("selecionado");
+
+  if ( selecionadoPrato != null && selecionadoBebida != null && selecionadoSobremesa != null ) {
+    habilitarFecharPedido()
+  }
+
 }
 
-function verificarSelecao() {
-  return  prato && bebida && sobremesa;
+function habilitarFecharPedido(){
+  let footer = document.querySelector(".rodape");
+  footer.classList.remove("botaoSelecioneTresItens");
+  footer.classList.add("botaoFecharPedido");
+  footer.disabled = false;
+  footer.innerHTML = "Fechar pedido"; 
 }
 
-function fecharPedido(){
-  let fechar = document.querySelector(".fechar-pedido")
-  fechar.classList.add("fechar-pedido-habilitado");
-  fechar.innerHTML = "Fechar pedido";
-  fechar.disabled = false;
-}
+function abrirResumoPedido () {
+  let telaConfirmar = document.querySelector(".telaConfirmar");
 
-function abrirResumoPedido(){
-  document.querySelector(".telaConfirmar").classList.add("abreTelaConfirmacao");
+  telaConfirmar.classList.remove("sumir");
+  telaConfirmar.classList.add("mostrar");
+
   preencherResumo();
-}
-
-function cancelar(){
-  document.querySelector(".telaConfirmar").classList.add("fechaTelaConfirmacao");
-  
 }
 
 function preencherResumo(){
 
-  nomePrato = document.getElementById(pratoSelecionado).querySelector(".titulo").innerHTML;
-  let precoPrato = document.getElementById(pratoSelecionado).querySelector(".preco").innerHTML;
+  let pratoNome = selecionadoPrato.querySelector(".titulo").innerHTML;
+  let pratoPreco = retirarMoeda (selecionadoPrato.querySelector(".preco").innerHTML ); 
+  
+  let bebidaNome = selecionadoBebida.querySelector(".titulo").innerHTML;
+  let bebidaPreco = retirarMoeda (selecionadoBebida.querySelector(".preco").innerHTML );
 
-  nomeBebida = document.getElementById(bebidaSelecionado).querySelector(".titulo").innerHTML;
-  let precoBebida = document.getElementById(bebidaSelecionado).querySelector(".preco").innerHTML;
+  let sobremesaNome = selecionadoSobremesa.querySelector(".titulo").innerHTML;
+  let sobremesaPreco = retirarMoeda (selecionadoSobremesa.querySelector(".preco").innerHTML );
 
-  nomeSobremesa = document.getElementById(sobremesaSelecionado).querySelector(".titulo").innerHTML;
-  let precoSobremesa = document.getElementById(sobremesaSelecionado).querySelector(".preco").innerHTML;
+  let total = calcularTotal (pratoPreco, bebidaPreco, sobremesaPreco) ;
 
-  precoTotal = calcularTotal(precoPrato,precoBebida,precoSobremesa);
+  document.querySelector(".tab-prato").innerHTML = pratoNome;
+  document.querySelector(".tab-prato-preco").innerHTML = pratoPreco;
 
-  document.querySelector(".tab-prato").innerHTML = nomePrato;
-  document.querySelector(".tab-prato-preco").innerHTML = precoPrato;
+  document.querySelector(".tab-bebida").innerHTML = bebidaNome;
+  document.querySelector(".tab-bebida-preco").innerHTML = bebidaPreco;
 
-  document.querySelector(".tab-bebida").innerHTML = nomeBebida;
-  document.querySelector(".tab-bebida-preco").innerHTML = precoBebida;
+  document.querySelector(".tab-sobremesa").innerHTML = sobremesaNome;
+  document.querySelector(".tab-sobremesa-preco").innerHTML = sobremesaPreco;
 
-  document.querySelector(".tab-sobremesa").innerHTML = nomeSobremesa;
-  document.querySelector(".tab-sobremesa-preco").innerHTML = precoSobremesa;
-
-  document.querySelector(".tab-total-preco").innerHTML = trocarPontoVirgula(precoTotal.toFixed(2));
+  document.querySelector(".tab-total-preco").innerHTML = "R$ " + trocarPontoVirgula(total);
 
 }
 
-function calcularTotal(prato,bebida,sobremesa){
-  return parseFloat(trocarVirgulaPonto(prato)) + parseFloat(trocarVirgulaPonto(bebida)) + parseFloat(trocarVirgulaPonto(sobremesa));
+function calcularTotal(prato, bebida, sobremesa ){
+  precoTotal = (parseFloat(trocarVirgulaPonto(prato)) + 
+                parseFloat(trocarVirgulaPonto(bebida)) + 
+                parseFloat(trocarVirgulaPonto(sobremesa))).toFixed(2); 
+  return precoTotal;
+}
+
+function retirarMoeda(valor){
+  return valor = valor.replace ("R$ ","");
 }
 
 function trocarVirgulaPonto(valor){
-  return valor = valor.replace (",",".");;
+  return valor = valor.replace (",",".");
 }
 
 function trocarPontoVirgula(valor){
-  return valor = valor.replace (".",",");;
+  return valor = valor.replace (".",",");
 }
 
-function fazerPedido(){
-  
+function confirmarPedido(){
 
   let linkWhasapp = "Olá, gostaria de fazer o pedido: \n";
-  linkWhasapp += "- Prato: " + nomePrato + "\n";
-  linkWhasapp += "- Bebida: " + nomeBebida + "\n";
-  linkWhasapp += "- Sobremesa: " + nomeSobremesa + "\n";
-  linkWhasapp += "Total: R$ " + precoTotal.toFixed(2) + "\n";
+  linkWhasapp += "- Prato: "     + selecionadoPrato.querySelector(".titulo").innerHTML     +    "\n";
+  linkWhasapp += "- Bebida: "    + selecionadoBebida.querySelector(".titulo").innerHTML    +    "\n";
+  linkWhasapp += "- Sobremesa: " + selecionadoSobremesa.querySelector(".titulo").innerHTML +    "\n";
+  linkWhasapp += "Total: R$ "    + precoTotal + "\n";
 
   linkWhasapp = encodeURIComponent (linkWhasapp);
 
   linkWhasapp = "https://wa.me/" + celular + "?text=" + linkWhasapp;
   
   window.open(linkWhasapp);
-  
-  
 }
+
+function cancelarPedido(){
+  let telaConfirmar = document.querySelector(".telaConfirmar");
+  telaConfirmar.classList.add("sumir");
+  telaConfirmar.classList.remove("mostrar");
+}
+

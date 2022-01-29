@@ -4,218 +4,211 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DrivenEats</title>
+  <title>DriveEats</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> 
 
+
   <link href="css/reset.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
-
 </head>
+
 <body>
 
   <!-- CABEÇALHO -->
-  <header>
+  <head>
     <nav>
-      <p class="font-destaque" >DrivenEats</p>
-      <p class="font-pedido" >Sua comida em 6 minutos</p>
+      <strong class="font-destaque" >DrivenEats</strong>
+      <p><small class="font-pedido" > Sua comida em 6 minutos</small></p>
     </nav>
-  </header>
+  </head>
 
-  <!-- MENU -->
-  <main class="menu">
+  <!-- ITENS DO MENU --> 
+  <div class="menu">
 
-    <!-- PRATOS -->
     <p class="font-destaque texto">Primeiro, seu prato</p>
-    <section class="pratos font-pedido">
+    <section class="pratos">
+      <div class="itens-menu font-pedido">
 
-      <div class="itens-menu">
 
-        <div class="prato item-menu " onclick="selecionar(this)">
+        <div class="prato item-menu " id="prato_1" onclick="selecionar(id)">
           <img class="foto" src="imagens/pratos/bife_batata.png" />
           <p class="titulo">Prato feito</p>
           <p class="descricao">Bife com batata frita e salada</p>
-          <p class="preco">R$ 19,90</p>
+          <p class="preco"> 19,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="prato item-menu" onclick="selecionar(this)">
+        <div class="prato item-menu" id="prato_2" onclick="selecionar(id)">
           <img class="foto" src="imagens/pratos/taco.png" />
           <p class="titulo">Taco</p>
           <p class="descricao">Comida mexicana com feijão</p>
-          <p class="preco">R$ 18,90</p>
+          <p class="preco"> 18,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="prato item-menu" onclick="selecionar(this)">
+        <div class="prato item-menu" id="prato_3" onclick="selecionar(id)">
           <img class="foto" src="imagens/pratos/macarrao.png" />
           <p class="titulo">Macarronada</p>
           <p class="descricao">Macarrão com molho de tomate</p>
-          <p class="preco">R$ 21,90</p>
+          <p class="preco"> 21,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="prato item-menu" onclick="selecionar(this)">
+        <div class="prato item-menu" id="prato_4" onclick="selecionar(id)">
           <img class="foto" src="imagens/pratos/pizza.png" />
           <p class="titulo">Pizza</p>
           <p class="descricao">Pizza de receita italiana</p>
-          <p class="preco">R$ 64,90</p>
+          <p class="preco"> 64,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="prato item-menu" onclick="selecionar(this)">
+        <div class="prato item-menu" id="prato_5" onclick="selecionar(id)">
           <img class="foto" src="imagens/pratos/hambueger.png" />
           <p class="titulo">Hamburguer</p>
           <p class="descricao">Harburguer de carne de soja</p>
-          <p class="preco">R$ 24,90</p>
+          <p class="preco"> 24,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
       </div>
-
     </section>
 
-    <!-- BEBIDAS -->
     <p class="font-destaque texto">Agora, sua bebida</p>
-    <section class="bebidas font-pedido">
+    <section class="bebidas">
+      <div class="itens-menu font-pedido">
 
-      <div class="itens-menu ">
-
-        <div class="bebida item-menu" onclick="selecionar(this)">
+        <div class="bebida item-menu" id="bebida_1" onclick="selecionar(id)">
           <img class="foto" src="imagens/bebidas/suco_laranja.png" />
           <p class="titulo">Suco de laranja</p>
           <p class="descricao">Suco natural</p>
-          <p class="preco">R$ 8,90</p>
+          <p class="preco"> 8,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="bebida item-menu" onclick="selecionar(this)">
+        <div class="bebida item-menu" id="bebida_2" onclick="selecionar(id)">
           <img class="foto" src="imagens/bebidas/mojito.png" />
           <p class="titulo">Mojito</p>
           <p class="descricao">Mojito refrescante </p>
-          <p class="preco">R$ 9,90</p>
+          <p class="preco"> 9,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="bebida item-menu" onclick="selecionar(this)">
+        <div class="bebida item-menu" id="bebida_3" onclick="selecionar(id)">
           <img class="foto" src="imagens/bebidas/cerveja.png" />
           <p class="titulo">Cerveja</p>
           <p class="descricao">Cerveja gelada</p>
-          <p class="preco">R$ 7,90</p>
+          <p class="preco"> 7,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="bebida item-menu" onclick="selecionar(this)">
+        <div class="bebida item-menu" id="bebida_4" onclick="selecionar(id)">
           <img class="foto" src="imagens/bebidas/cafe.png" />
           <p class="titulo">Café</p>
           <p class="descricao">Extra forte</p>
-          <p class="preco">R$ 4,90</p>
+          <p class="preco"> 4,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="bebida item-menu" onclick="selecionar(this)">
+        <div class="bebida item-menu" id="bebida_5" onclick="selecionar(id)">
           <img class="foto" src="imagens/bebidas/champagne.png" />
           <p class="titulo">Champagne</p>
           <p class="descricao">Chique</p>
-          <p class="preco">R$ 99,90</p>
+          <p class="preco"> 99,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
       </div>
-
     </section>
 
-    <!-- SOBREMESAS -->
     <p class="font-destaque texto">Por fim, sua sobremesa</p>
-    <section class="sobremesas font-pedido">
+    <section class="sobremesas">
+      <div class="itens-menu font-pedido">
 
-      <div class="itens-menu">
-
-        <div class="sobremesa item-menu" onclick="selecionar(this)">
+        <div class="sobremesa item-menu" id="sobremesa_1" onclick="selecionar(id)">
           <img class="foto" src="imagens/sobremesas/abacaxi.png" />
           <p class="titulo">Abacaxi</p>
           <p class="descricao">Fatias</p>
-          <p class="preco">R$ 5,90</p>
+          <p class="preco"> 5,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="sobremesa item-menu" onclick="selecionar(this)">
+        <div class="sobremesa item-menu" id="sobremesa_2" onclick="selecionar(id)">
           <img class="foto" src="imagens/sobremesas/bolo.png" />
           <p class="titulo">Bolo</p>
           <p class="descricao">Sabor chocolate</p>
-          <p class="preco">R$ 8,90</p>
+          <p class="preco"> 8,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="sobremesa item-menu" onclick="selecionar(this)">
+        <div class="sobremesa item-menu" id="sobremesa_3" onclick="selecionar(id)">
           <img class="foto" src="imagens/sobremesas/banana.png" />
           <p class="titulo">Banana</p>
           <p class="descricao">Prata - unidade</p>
-          <p class="preco">R$ 2,90</p>
+          <p class="preco"> 2,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="sobremesa item-menu" onclick="selecionar(this)">
+        <div class="sobremesa item-menu"  id="sobremesa_4" onclick="selecionar(id)">
           <img class="foto" src="imagens/sobremesas/sorvetepng" />
           <p class="titulo">Sorvete</p>
           <p class="descricao">Sabores sortidos</p>
-          <p class="preco">R$ 6,90</p>
+          <p class="preco"> 6,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
 
-        <div class="sobremesa item-menu" onclick="selecionar(this)">
+        <div class="sobremesa item-menu" id="sobremesa_5" onclick="selecionar(id)">
           <img class="foto" src="imagens/sobremesas/maca.png" />
           <p class="titulo">Maçã</p>
           <p class="descricao">Importada - unidade</p>
-          <p class="preco">R$ 3,90</p>
+          <p class="preco"> 3,90</p>
           <ion-icon name="checkmark-circle"></ion-icon>
         </div>
       </div>
-
     </section>
-
-  </main>
-
+    
+  </div>
+  
   <!-- RODAPÉ -->
   <footer>
-    <button class="rodape botaoSelecioneTresItens font-pedido" onclick="abrirResumoPedido()" disabled>
+    <button class="fechar-pedido font-pedido" onclick="abrirResumoPedido()" disabled="disabled">
       Selecione os 3 itens para fechar o pedido
     </button>  
   </footer>
 
   <!-- CONFIRMAÇÃO DO PEDIDO-->
-  <div class="telaConfirmar font-pedido sumir">
-
+  <div class="telaConfirmar font-pedido">
     <div class="resumoPedido">
 
       <strong>Confirme seu pedido</strong>
-      <table class="tabela-confirmacao">
+      <table class="tabela_confirmacao">
         <tr>
-          <td class="tab-prato"></td>
-          <td class="tab-prato-preco tab-preco"> </td>
+          <td class="tab-prato">a</td>
+          <td class="tab-prato-preco tab-preco"> b</td>
         </tr>
         <tr>
-          <td class="tab-bebida"></td>
-          <td class="tab-bebida-preco  tab-preco"></td>
+          <td class="tab-bebida">c</td>
+          <td class="tab-bebida-preco  tab-preco"> d</td>
         </tr>
         <tr>
-          <td class="tab-sobremesa"></td>
-          <td class="tab-sobremesa-preco tab-preco"> </td>
+          <td class="tab-sobremesa">e</td>
+          <td class="tab-sobremesa-preco tab-preco"> f</td>
         </tr>
         <tr>
           <td class="tab-total"><strong>TOTAL</strong></td>
-          <td class="tab-total-preco tab-preco"> </td>
+          <td class="tab-total-preco tab-preco"> 9999</td>
         </tr>
       </table>
 
-      <button class="confirmarPedido" onclick="confirmarPedido()"><strong>Tudo certo, pode pedir!</strong></button>
+      <button class="confirmarPedido" onclick="fazerPedido()"><strong>Tudo certo, pode pedir!</strong></button>
 
-      <button class="cancelarPedido" onclick="cancelarPedido()"><strong>Cancelar</strong></button>
 
+      <button class="cancelarPedido" onclick="cancelar()"><strong>Cancelar</strong></button>
     </div>
   </div>
-  
+
+
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
   <script src="script.js"></script>
 </body>
