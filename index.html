@@ -42,7 +42,7 @@
       <div class="prato item-menu" onclick="selecionar(this)" data-identifier="food-option">
         <img class="foto" src="imagens/pratos/taco.png" />
         <p class="titulo" data-identifier="food-title">Taco</p>
-        <p class="descricao">Comida mexicana com feijão</p>
+        <p class="descricao">Taco de receita mexicana</p>
         <p class="preco" data-identifier="food-price">R$ 18,90</p>
         <ion-icon name="checkmark-circle"></ion-icon>
       </div>
@@ -58,7 +58,7 @@
       <div class="prato item-menu" onclick="selecionar(this)" data-identifier="food-option">
         <img class="foto" src="imagens/pratos/pizza.png" />
         <p class="titulo" data-identifier="food-title">Pizza</p>
-        <p class="descricao">Pizza de receita italiana</p>
+        <p class="descricao">Pizza de receita italiana original</p>
         <p class="preco" data-identifier="food-price">R$ 64,90</p>
         <ion-icon name="checkmark-circle"></ion-icon>
       </div>
@@ -169,7 +169,7 @@
 
   <!-- RODAPÉ -->
   <footer>
-    <button class="rodape botaoSelecioneTresItens font-pedido" onclick="abrirResumoPedido()" disabled>
+    <button class="rodape botaoSelecioneTresItens font-pedido" onclick="abrirResumoPedido()" disabled> 
       Selecione os 3 itens para fechar o pedido
     </button>  
   </footer>
@@ -177,8 +177,9 @@
   <!-- CONFIRMAÇÃO DO PEDIDO-->
   <div class="telaConfirmar font-pedido sumir">
 
+    <!-- RESUMO DO PEDIDO -->
     <div class="resumoPedido" data-identifier="confirmation-dialog">
-
+      
       <strong>Confirme seu pedido</strong>
       <table class="tabela-confirmacao">
         <tr>
@@ -200,6 +201,8 @@
       </table>
 
       <button class="confirmarPedido" onclick="confirmarPedido()"><strong>Tudo certo, pode pedir!</strong></button>
+      
+      <a class="linkWhatsApp" href="" target="_blank"></a>
 
       <button class="cancelarPedido" onclick="cancelarPedido()"><strong>Cancelar</strong></button>
 

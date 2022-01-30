@@ -5,6 +5,11 @@ let precoTotal = 0;
 
 const celular = "5519982199629";
 
+if (document.readyState !== "complete" && 
+   (selecionadoPrato == null || selecionadoBebida == null || selecionadoSobremesa == null) ){
+  desabilitarFecharPedido();
+}
+
 function selecionar(item){ 
 
   let busca = "";
@@ -40,6 +45,14 @@ function habilitarFecharPedido(){
   footer.classList.add("botaoFecharPedido");
   footer.disabled = false;
   footer.innerHTML = "Fechar pedido"; 
+}
+
+function desabilitarFecharPedido(){
+  let footer = document.querySelector(".rodape");
+  footer.classList.add("botaoSelecioneTresItens");
+  footer.classList.remove("botaoFecharPedido");
+  footer.disabled = true;
+  footer.innerHTML = "Selecione os 3 itens para fechar o pedido"; 
 }
 
 function abrirResumoPedido () {
@@ -100,19 +113,30 @@ function confirmarPedido(){
   let nomeUsuario = prompt("Por favor, digite seu nome:");
   let enderecoUsuario = prompt("Por favor, digite seu endereço:");
 
-  let linkWhasapp = "Olá, gostaria de fazer o pedido: \n";
-      linkWhasapp += "- Prato: "     + selecionadoPrato.querySelector(".titulo").innerHTML     + "\n";
-      linkWhasapp += "- Bebida: "    + selecionadoBebida.querySelector(".titulo").innerHTML    + "\n";
-      linkWhasapp += "- Sobremesa: " + selecionadoSobremesa.querySelector(".titulo").innerHTML + "\n";
-      linkWhasapp += "Total: R$ "    + precoTotal      + "\n\n";
-      linkWhasapp += "Nome: "        + nomeUsuario     + "\n";
-      linkWhasapp += "Endereço: "    + enderecoUsuario + "\n";
+  let linkWhatsapp = "Olá, gostaria de fazer o pedido: \n";
+      linkWhatsapp += "- Prato: "     + selecionadoPrato.querySelector(".titulo").innerHTML     + "\n";
+      linkWhatsapp += "- Bebida: "    + selecionadoBebida.querySelector(".titulo").innerHTML    + "\n";
+      linkWhatsapp += "- Sobremesa: " + selecionadoSobremesa.querySelector(".titulo").innerHTML + "\n";
+      linkWhatsapp += "Total: R$ "    + precoTotal      + "\n\n";
+      linkWhatsapp += "Nome: "        + nomeUsuario     + "\n";
+      linkWhatsapp += "Endereço: "    + enderecoUsuario + "\n";
 
-  linkWhasapp = encodeURIComponent (linkWhasapp);
+      linkWhatsapp = encodeURIComponent (linkWhatsapp);
 
-  linkWhasapp = "https://wa.me/" + celular + "?text=" + linkWhasapp;
+      linkWhatsapp = "https://wa.me/" + celular + "?text=" + linkWhatsapp;
 
-  window.open(linkWhasapp);
+  //window.location.assign(linkWhatsapp);
+  
+  abrirlinkWhatsApp (linkWhatsapp);
+  
+}
+
+function abrirlinkWhatsApp (novoLink){
+
+  let link = document.querySelector(".linkWhatsApp");
+  link.href = novoLink;
+  link.click();
+
 }
 
 function cancelarPedido(){

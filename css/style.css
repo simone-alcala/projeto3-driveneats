@@ -75,7 +75,6 @@ nav p:nth-child(2){
   margin-top: 10px;
 }
 
-
 .item-menu {
   width: 172px;
   background-color: #ffffff;
@@ -88,7 +87,6 @@ nav p:nth-child(2){
   justify-content: space-between;
   padding: 19px;
   position: relative;
-  
 }
 
 .pratos, .bebidas, .sobremesas{
@@ -97,11 +95,12 @@ nav p:nth-child(2){
 }
 
 .foto{
-  width: 144px;
   height: 87px;
+  margin: 0 auto;
 }
 
 .titulo{
+  width: 172px;
   font-size: 16px;
   font-weight: 700;
   color: #333333;
@@ -121,6 +120,7 @@ nav p:nth-child(2){
 
 .prato{
   height: 216px;
+  
 }
 
 .bebida{
@@ -158,7 +158,7 @@ footer button{
   border: none;
   color: #ffffff;
   font-size: 20px;
-  padding: 0 80px;
+  padding: 0 5%;
 }
 
 .botaoSelecioneTresItens{
@@ -209,7 +209,8 @@ footer button{
 }
 
 .tabela-confirmacao{
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .tab-preco{
@@ -221,7 +222,8 @@ th, td {
 }
 
 .confirmarPedido{
-  width: 329px;
+  max-width: 329px;
+  width: 100%;
   height: 52px;
   background: #FFFFFF;
   border-radius: 100px;
@@ -233,6 +235,10 @@ th, td {
 
 .confirmarPedido:hover{
   cursor: pointer;
+}
+
+.linkWhatsApp{
+  display: none;
 }
 
 .cancelarPedido{
