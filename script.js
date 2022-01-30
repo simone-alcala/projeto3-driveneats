@@ -13,11 +13,9 @@ function selecionar(item){
   if (item.classList[0]==="prato"){
     busca = ".pratos";
     selecionadoPrato = item;
-
   } else if (item.classList[0]==="bebida") {
     busca = ".bebidas";
     selecionadoBebida = item;
-
   } else{
     busca = ".sobremesas";
     selecionadoSobremesa = item;
@@ -34,7 +32,6 @@ function selecionar(item){
   if ( selecionadoPrato != null && selecionadoBebida != null && selecionadoSobremesa != null ) {
     habilitarFecharPedido()
   }
-
 }
 
 function habilitarFecharPedido(){
@@ -67,17 +64,16 @@ function preencherResumo(){
 
   let total = calcularTotal (pratoPreco, bebidaPreco, sobremesaPreco) ;
 
-  document.querySelector(".tab-prato").innerHTML = pratoNome;
-  document.querySelector(".tab-prato-preco").innerHTML = pratoPreco;
+  document.querySelector(".tab-prato").innerHTML            = pratoNome;
+  document.querySelector(".tab-prato-preco").innerHTML      = pratoPreco;
 
-  document.querySelector(".tab-bebida").innerHTML = bebidaNome;
-  document.querySelector(".tab-bebida-preco").innerHTML = bebidaPreco;
+  document.querySelector(".tab-bebida").innerHTML           = bebidaNome;
+  document.querySelector(".tab-bebida-preco").innerHTML     = bebidaPreco;
 
-  document.querySelector(".tab-sobremesa").innerHTML = sobremesaNome;
-  document.querySelector(".tab-sobremesa-preco").innerHTML = sobremesaPreco;
+  document.querySelector(".tab-sobremesa").innerHTML        = sobremesaNome;
+  document.querySelector(".tab-sobremesa-preco").innerHTML  = sobremesaPreco;
 
-  document.querySelector(".tab-total-preco").innerHTML = "R$ " + trocarPontoVirgula(total);
-
+  document.querySelector(".tab-total-preco").innerHTML      = "R$ " + trocarPontoVirgula(total);
 }
 
 function calcularTotal(prato, bebida, sobremesa ){
@@ -105,12 +101,12 @@ function confirmarPedido(){
   let enderecoUsuario = prompt("Por favor, digite seu endereço:");
 
   let linkWhasapp = "Olá, gostaria de fazer o pedido: \n";
-  linkWhasapp += "- Prato: "     + selecionadoPrato.querySelector(".titulo").innerHTML     +    "\n";
-  linkWhasapp += "- Bebida: "    + selecionadoBebida.querySelector(".titulo").innerHTML    +    "\n";
-  linkWhasapp += "- Sobremesa: " + selecionadoSobremesa.querySelector(".titulo").innerHTML +    "\n";
-  linkWhasapp += "Total: R$ "    + precoTotal      + "\n\n";
-  linkWhasapp += "Nome: "        + nomeUsuario     + "\n";
-  linkWhasapp += "Endereço: "    + enderecoUsuario + "\n";
+      linkWhasapp += "- Prato: "     + selecionadoPrato.querySelector(".titulo").innerHTML     + "\n";
+      linkWhasapp += "- Bebida: "    + selecionadoBebida.querySelector(".titulo").innerHTML    + "\n";
+      linkWhasapp += "- Sobremesa: " + selecionadoSobremesa.querySelector(".titulo").innerHTML + "\n";
+      linkWhasapp += "Total: R$ "    + precoTotal      + "\n\n";
+      linkWhasapp += "Nome: "        + nomeUsuario     + "\n";
+      linkWhasapp += "Endereço: "    + enderecoUsuario + "\n";
 
   linkWhasapp = encodeURIComponent (linkWhasapp);
 
@@ -121,8 +117,8 @@ function confirmarPedido(){
 
 function cancelarPedido(){
   let telaConfirmar = document.querySelector(".telaConfirmar");
-  telaConfirmar.classList.add("sumir");
-  telaConfirmar.classList.remove("mostrar");
+      telaConfirmar.classList.add("sumir");
+      telaConfirmar.classList.remove("mostrar");
 }
 
 

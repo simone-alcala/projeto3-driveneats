@@ -62,12 +62,10 @@ nav p:nth-child(2){
 
 /* MENU */
 .menu {
-  
   margin-top: 110px;
   margin-bottom: 92px;
   overflow: hidden; 
   padding-left: 19px;
-
 }
 
 .texto{
@@ -76,12 +74,6 @@ nav p:nth-child(2){
   color: #333333;
   margin-top: 10px;
 }
-/*
-.itens-menu{
-  width: 1024px;
-  display: flex;
-}
-*/
 
 
 .item-menu {
@@ -101,7 +93,6 @@ nav p:nth-child(2){
 
 .pratos, .bebidas, .sobremesas{
   overflow-x: scroll;
-  
   display: flex;
 }
 
